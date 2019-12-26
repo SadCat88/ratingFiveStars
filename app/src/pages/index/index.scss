@@ -1,0 +1,84 @@
+@import '../../assets/scss/utils/vars.scss';
+
+
+.vertical-w {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+}
+
+.header {
+
+    height: 90px;
+    margin-bottom: 30px;
+
+    @extend .second-gradient;
+    @extend .main-shadow;
+}
+
+.main {
+    flex-grow: 2;
+}
+
+.footer {
+    height: 90px;
+    margin-top: 30px;
+
+    @extend .second-gradient;
+    @extend .main-shadow;
+}
+
+// =============================================================================
+
+.header {
+    .header-w {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .logo {
+        display: flex;
+        align-items: flex-end;
+        padding-top: 15px;
+        margin-right: 200px;
+
+        .logo__image {
+            margin-right: 15px;
+        }
+
+        .logo__text {
+            font-size: 32px;
+            line-height: 28px;
+
+            @extend .main-font-bold;
+            color: $secondBgGradientColorSecond;
+        }
+    }
+}
+
+.main {
+    display: flex;
+    align-items: justify;
+
+    .main-w {
+        flex-grow: 2;
+        padding: 20px 30px;
+
+        background-color: $contentBgColor;
+
+        border-radius: 6px;
+        @extend .main-shadow;
+    }
+
+    @extend .main-gradient;
+
+    .content-heading {
+        margin-bottom: 10px;
+    }
+}
+
+.footer {
+    padding-top: 20px;
+}

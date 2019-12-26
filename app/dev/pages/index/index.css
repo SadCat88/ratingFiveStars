@@ -39,6 +39,21 @@
   text-transform: none;
   color: #5947E4; }
 
+.rating-input .rating-5-stars {
+  display: flex; }
+  .rating-input .rating-5-stars .star {
+    height: 40px;
+    width: 40px;
+    background-color: red; }
+    .rating-input .rating-5-stars .star:not(:last-child) {
+      margin-right: 5px; }
+    .rating-input .rating-5-stars .star:hover {
+      cursor: pointer;
+      border-radius: 50%;
+      background-color: green; }
+    .rating-input .rating-5-stars .star.star_fill {
+      background-color: green; }
+
 .vertical-w {
   display: flex;
   flex-direction: column;
@@ -79,8 +94,12 @@
     padding: 20px 30px;
     background-color: #ffffff;
     border-radius: 6px; }
-  .main .content-heading {
-    margin-bottom: 10px; }
 
 .footer {
   padding-top: 20px; }
+
+.main .content-heading {
+  margin-bottom: 10px; }
+
+.main .content {
+  margin-bottom: 40px; }

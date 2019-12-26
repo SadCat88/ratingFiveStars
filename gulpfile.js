@@ -22,7 +22,7 @@ const jsdoc = require('gulp-jsdoc3');
 
 // JSDoc =======================================================================
 gulp.task("getdoc", function(cb) {
-  gulp.src(["README.md", "./src/**/*.js"], { read: false })
+  gulp.src(["README.md", "./app/src/**/*.js"], { read: false })
   .pipe(jsdoc(cb));
 });
 

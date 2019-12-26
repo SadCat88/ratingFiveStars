@@ -1,0 +1,26 @@
+.rating-input {
+    .rating-5-stars {
+
+        display: flex;
+
+        .star {
+            height: 40px;
+            width: 40px;
+            background-color: red;
+
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+
+            &:hover {
+                cursor: pointer;
+                border-radius: 50%;
+                background-color: green;
+            }
+
+            &.star_fill {
+                background-color: green;
+            }
+        }
+    }
+}

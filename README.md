@@ -1,7 +1,7 @@
 # ratingFiveStars
 
 **GitHub Pages:**<br>
-https://sadcat88.github.io/ratingFiveStars/app/public/index.html<br>
+https://sadcat88.github.io/ratingFiveStars/app/public/<br>
 
 ## Описание
 

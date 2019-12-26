@@ -17,6 +17,14 @@ html(lang="ru")
         .header__heading #[h1 Vanilla JavaScript practice]
     main.main 
       .wrapper.main-w
-        
+        h2.content-heading.
+          Рейтинг - 5 звездочек
+        p.content.
+          Рейтинг является доступным для людей с нарушением зрения.<br>
+          Экранная читалка должна все правильно озвучить.<br>
+          Доступен ввод значения с клавиатуры.<br>
+        include ./components/ratingFiveStars.jade
+
     footer.footer 
       .wrapper
+    script(type="module" src="pages/index/index.js")

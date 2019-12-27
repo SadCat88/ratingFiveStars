@@ -30,9 +30,12 @@
                 background-image: url("../../components/star_fill.svg");
 
                 &:hover {
-                    cursor: pointer;
                     background-image: url("../../components/star_hover.svg");
                 }
+            }
+
+            &.star_hover {
+                background-image: url("../../components/star_hover.svg");
             }
         }
     }

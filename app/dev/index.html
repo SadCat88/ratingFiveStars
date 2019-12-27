@@ -24,22 +24,23 @@
       <div class="wrapper main-w">
         <h2 class="content-heading">Рейтинг - 5 звездочек</h2>
         <p class="content">
-          Рейтинг является доступным для людей с нарушением зрения. <br>
-          Экранная читалка должна все правильно озвучить. <br>
-          Доступен ввод значения с клавиатуры. <br>
+          Рейтинг является доступным для людей с нарушением зрения.<br>
+          Экранная читалка должна все правильно озвучить.<br>
+          Доступен ввод значения с клавиатуры, в том числе и стрелками ArrowUp / ArrowDown<br>
+          
         </p>
         <div class="rating-input">
           <form class="ally-rating" method="post" action="https://echo.htmlacademy.ru">
-            <label for="5_stars">Поставьте свою оценку (от 1 до 5)</label>
             <input class="ally-rating__input" type="number" min="1" max="5" step="1" name="inputRating" id="5_stars"/>
+            <label class="ally-rating__label" for="5_stars">Поставьте свою оценку (от 1 до 5)</label>
+            <div class="rating-5-stars">
+              <div class="star" data-num-star="1"></div>
+              <div class="star" data-num-star="2"></div>
+              <div class="star" data-num-star="3"></div>
+              <div class="star" data-num-star="4"></div>
+              <div class="star" data-num-star="5"></div>
+            </div>
           </form>
-          <div class="rating-5-stars">
-            <div class="star" data-num-star="1"></div>
-            <div class="star" data-num-star="2"></div>
-            <div class="star" data-num-star="3"></div>
-            <div class="star" data-num-star="4"></div>
-            <div class="star" data-num-star="5"></div>
-          </div>
         </div>
       </div>
     </main>

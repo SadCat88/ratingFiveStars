@@ -1,10 +1,10 @@
 .rating-input
   form.ally-rating(method="post" action="https://echo.htmlacademy.ru")
-    label(for="5_stars") Поставьте свою оценку (от 1 до 5)
     input.ally-rating__input(type="number" min="1" max="5" step="1" name="inputRating")#5_stars
-  .rating-5-stars
-    .star(data-num-star="1")
-    .star(data-num-star="2")
-    .star(data-num-star="3")
-    .star(data-num-star="4")
-    .star(data-num-star="5")
+    label.ally-rating__label(for="5_stars") Поставьте свою оценку (от 1 до 5)
+    .rating-5-stars
+      .star(data-num-star="1")
+      .star(data-num-star="2")
+      .star(data-num-star="3")
+      .star(data-num-star="4")
+      .star(data-num-star="5")

@@ -1,7 +1,21 @@
-'use strict';
+// to use module:
+// copy-paste this in index.js ↓
+// =============================================================================
+//
+// import { setRating } from '../../components/ratingFiveStars.js';
+// let $starGroup = document.querySelectorAll('.rating-input');
+// let $starImages = document.querySelectorAll('.rating-5-stars');
+// let $starInput = document.querySelectorAll('.ally-rating__input');
+// for (let i = 0; i < $starGroup.length; i++) {
+// 	 $starImages[i].addEventListener('click', setRating);
+// 	 $starImages[i].addEventListener('mousemove', setRating);
+// 	 $starImages[i].addEventListener('mouseleave', setRating);
+// 	 $starInput[i].addEventListener('input', setRating);
+// }
+//
+// =============================================================================
 
-let $allyInput = document.querySelector('.ally-rating__input');
-// поле ввода рейтинга с клавиатуры
+'use strict';
 
 export /**
  * Определяет тип переданного события
@@ -15,6 +29,15 @@ export /**
  */
 const setRating = function(event) {
 	let $target = event.target;
+	// источник события
+	let $rootIdForStar =
+		event.target.parentNode.parentNode.parentNode.dataset.ratingId;
+	// data-rating-id корневого элемента относительно звезды
+	let $rootIdForInput = event.target.parentNode.parentNode.dataset.ratingId;
+	// data-rating-id корневого элемента относительно поля ввода
+
+	// let $allyInput = $rootId.querySelector('.ally-rating__input');
+	// поле ввода рейтинга с клавиатуры
 
 	// === если событие - клик
 	if (event.type == 'click') {
@@ -23,7 +46,7 @@ const setRating = function(event) {
 			let $onClickNumberStar = event.target.dataset.numStar;
 			// по какой звезде был клик
 
-			displayStar($onClickNumberStar);
+			displayStar($onClickNumberStar, $rootIdForStar);
 		}
 	}
 
@@ -32,7 +55,7 @@ const setRating = function(event) {
 		let $inputRating = event.target.value;
 		// какой рейтинг введен с клавиатуры
 
-		displayStar($inputRating);
+		displayStar($inputRating, $rootIdForInput);
 	}
 
 	// === если событие - наведение мышью
@@ -42,13 +65,13 @@ const setRating = function(event) {
 			let $onHoverNumberStar = event.target.dataset.numStar;
 			// на какую звезду наведение
 
-			displayStar($onHoverNumberStar, 'hover');
+			displayStar($onHoverNumberStar, $rootIdForStar, 'hover');
 		}
 	}
 
 	// === если событие - покидание мышью границ блока
 	if (event.type == 'mouseleave') {
-		displayStar(0, 'leave');
+		displayStar(0, 0, 'leave');
 	}
 };
 
@@ -63,16 +86,20 @@ const setRating = function(event) {
  * </pre>
  * @param {number} rating - рейтинг от 1 до 5
  */
-const displayStar = (rating, hover) => {
-	$allyInput.value = rating;
-	// записать в input значение равное номеру звезды
-
+let $rootForLeave;
+const displayStar = (rating, id, hover) => {
 	// === перебор всех звезд
 	for (let i = 1; i <= 5; i++) {
-		let $star = document.querySelector(`.star[data-num-star="${i}"]`);
+		let $root = document.querySelector(`.rating-input[data-rating-id="${id}"]`);
 
-		// === если событие не является наведением мыши ========================
+		// === если событием является кликом мыши или вводом с клавиатуры ======
 		if (hover == undefined) {
+			let $input = $root.querySelector('.ally-rating__input');
+			$input.value = rating;
+			// записать в input значение равное номеру звезды
+
+			let $star = $root.querySelector(`.star[data-num-star="${i}"]`);
+
 			if (i <= rating) {
 				// установка класса .star_fill на звезды до клика включительно
 				$star.classList.add('star_fill');
@@ -84,6 +111,8 @@ const displayStar = (rating, hover) => {
 
 		// === если событием является наведением мыши ==========================
 		if (hover == 'hover') {
+			let $star = $root.querySelector(`.star[data-num-star="${i}"]`);
+			$rootForLeave = $root;
 			if (i < rating) {
 				// установка класса .star_hover на звезды до клика
 				$star.classList.add('star_hover');
@@ -95,7 +124,10 @@ const displayStar = (rating, hover) => {
 		// === если событием является покидание мышью родительского блока ======
 		if (hover == 'leave') {
 			// удаление класса .star_hover со всех звезд
-			$star.classList.remove('star_hover');
+			let $starForLeave = $rootForLeave.querySelector(
+				`.star[data-num-star="${i}"]`
+			);
+			$starForLeave.classList.remove('star_hover');
 		}
 	}
 };

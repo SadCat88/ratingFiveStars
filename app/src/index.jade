@@ -20,11 +20,36 @@ html(lang="ru")
         h2.content-heading.
           Рейтинг - 5 звездочек
         p.content.
-          Рейтинг является доступным для людей с нарушением зрения.<br>
-          Экранная читалка должна все правильно озвучить.<br>
-          Доступен ввод значения с клавиатуры, в том числе и стрелками ArrowUp / ArrowDown<br>
+          Рейтинг является доступным для людей с нарушением зрения. <br>
+          Экранная читалка должна все правильно озвучить. <br>
+          Рейтинг ловит фокус кнопкой Tab. <br>
+          Доступен ввод значения с клавиатуры, в том числе и стрелками ArrowUp / ArrowDown. <br>
+          Реализовано множественное использование рейтинга на одной странице.
+        .example
+          h3.example__heading Пример реализации
+          p.example__description.
+            В примере показаны скрытые элементы, через которые реализована поддержка доступности для людей с нарушением зрения. <br>
+            Поле ввода также можно использовать для отправки значения на сервер стандартным способом из реализации HTML5, если это потребуется.
           
+          .rating-input(data-rating-id="0")
+            form.ally-rating(method="post" action="https://echo.htmlacademy.ru")
+              label.ally-rating__label(for="5_stars") Поставьте свою оценку (от 1 до 5)
+              input.ally-rating__input(type="number" min="1" max="5" step="1" name="inputRating")#5_stars
+              .rating-5-stars
+                .star(data-num-star="1")
+                .star(data-num-star="2")
+                .star(data-num-star="3")
+                .star(data-num-star="4")
+                .star(data-num-star="5")
+
+        h3 Множественное подключение из библиотеки:
         include ./components/ratingFiveStars.jade
+        +rating-input('1')
+        +rating-input('2')
+        +rating-input('3')
+        +rating-input('4')
+        +rating-input('5')
+
 
     footer.footer 
       .wrapper

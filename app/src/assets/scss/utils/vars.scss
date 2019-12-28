@@ -11,16 +11,15 @@ $mainColor: #1eebbe;
 $secondColor: #5947E4;
 
 $mainBgColor: #7a98f6;
-$secondBgColor: #ea85a0;
-
-$contentBgColor: #ffffff;
-
 $mainBgGradientColorFirst: #70c5f4;
 $mainBgGradientColorSecond: #846bf7;
 
+$secondBgColor: #ea85a0;
 $secondBgGradientColorFirst: #ffa9af;
 $secondBgGradientColorSecond: #f871be;
 
+$contentBgColor: #ffffff;
+$contentHighlight: lighten($mainBgColor, 20%);
 $textDarkColor: #1F1D3B;
 
 // === screen
